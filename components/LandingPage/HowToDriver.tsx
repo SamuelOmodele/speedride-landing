@@ -83,7 +83,7 @@ const HowToDriver = () => {
                 className="hidden lg:flex items-start justify-center gap-4 mt-15"
             >
                 {steps.map((step, index) => (
-                    <motion.div key={index} variants={itemVariants} className="flex items-start gap-4">
+                    <motion.div key={index} variants={itemVariants} className="flex items-start gap-0">
                         <div className="relative flex flex-col items-center">
                             <Image src={step.image} alt="" />
                             <p className="w-40 mt-3 text-lg text-[#1A202C] font-semibold text-center leading-snug wrap-break-word">
@@ -91,7 +91,7 @@ const HowToDriver = () => {
                             </p>
                         </div>
                         {index < steps.length - 1 && (
-                            <Image src={curvedLine} alt="" className="w-50 mt-6" />
+                            <Image src={curvedLine} alt="" className="w-30 min-[1200px]:w-40 min-[1300px]:w-50 mt-15" />
                         )}
                     </motion.div>
                 ))}
