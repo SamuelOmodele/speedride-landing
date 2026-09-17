@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Josefin_Sans, Plus_Jakarta_Sans } from "next/font/google";
+import { Josefin_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
 const josefinSans = Josefin_Sans({
@@ -13,10 +13,10 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Speed",
+  title: "Speed - Your everyday ride hailing platform",
   description: "Move Faster, Ride Smarter with speed",
   icons: {
-    icon: "/speed-landing-logo.svg",
+    icon: "/speed-landing-logo-rounded.svg",
   },
 };
 
