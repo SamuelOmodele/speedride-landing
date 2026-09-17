@@ -31,8 +31,10 @@ const imageVariants: Variants = {
 const HeroSection = () => {
   return (
     <div className="bg-[url(@/public/hero-bg.jpg)] overflow-hidden bg-no-repeat bg-cover pt-4 z-10">
-      <Contact />
-      <Navbar />
+      <div className="px-2">
+        <Contact />
+        <Navbar />
+      </div>
 
       <div className="relative max-w-334 mx-auto">
 
@@ -60,10 +62,10 @@ const HeroSection = () => {
               variants={itemVariants}
               className="mt-7 flex flex-row items-center max-lg:justify-center gap-3"
             >
-              <button className="px-5 sm:px-10 py-2.5 cursor-pointer font-plus-jarkata-sans font-medium text-[#1A202C] text-sm rounded-[5px] bg-[#FFC909] hover:bg-[#FFC909]/80 duration-150 w-full sm:w-auto transition-transform hover:scale-105">
+              <button className="px-7 sm:px-10 py-2.5 cursor-pointer font-plus-jarkata-sans font-medium text-[#1A202C] text-sm rounded-[5px] bg-[#FFC909] hover:bg-[#FFC909]/80 duration-150 w-auto transition-transform hover:scale-105">
                 Order a Ride
               </button>
-              <button className="px-5 sm:px-7 py-2.5 cursor-pointer font-plus-jarkata-sans font-medium text-[#1A202C] text-sm rounded-[5px] bg-white/30 hover:bg-white/50 sm:bg-white/20 sm:hover:bg-white/40 duration-150 w-full sm:w-auto transition-transform hover:scale-105">
+              <button className="px-5 sm:px-7 py-2.5 cursor-pointer font-plus-jarkata-sans font-medium text-[#1A202C] text-sm rounded-[5px] bg-white/30 hover:bg-white/50 sm:bg-white/20 sm:hover:bg-white/40 duration-150 w-auto transition-transform hover:scale-105">
                 Become a Driver
               </button>
             </motion.div>
