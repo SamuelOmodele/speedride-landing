@@ -58,7 +58,7 @@ const HeroSection = () => {
             </motion.p>
             <motion.div
               variants={itemVariants}
-              className="mt-7 flex flex-row items-center justify-center gap-3"
+              className="mt-7 flex flex-row items-center max-lg:justify-center gap-3"
             >
               <button className="px-5 sm:px-10 py-2.5 cursor-pointer font-plus-jarkata-sans font-medium text-[#1A202C] text-sm rounded-[5px] bg-[#FFC909] hover:bg-[#FFC909]/80 duration-150 w-full sm:w-auto transition-transform hover:scale-105">
                 Order a Ride
