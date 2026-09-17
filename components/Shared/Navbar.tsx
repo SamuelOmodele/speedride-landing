@@ -76,7 +76,7 @@ const Navbar = () => {
                   key={label}
                   href={href}
                   onClick={() => setOpen(false)}
-                  className={'hover:text-[#34C759] duration-200'}
+                  className={'hover:text-[#34C759] text-[15px] duration-200'}
                 >
                   {label}
                 </Link>
