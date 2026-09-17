@@ -1,5 +1,4 @@
 import { Mail, Phone } from 'lucide-react'
-import React from 'react'
 
 const socialLinks = [
   {
@@ -26,27 +25,21 @@ const socialLinks = [
 
 const Contact = () => {
   return (
-    <div className='mx-auto w-full max-w-273.75 flex items-center justify-between mb-3'>
-      <div className='flex items-center gap-4'>
-        <div className='font-josefin-sans flex items-center gap-2 text-white'>
-          <Mail size={15} />
-          <p className='text-[13px]'>Info@speed.com</p>
+    <div className='mx-auto w-full max-w-273.75 flex flex-wrap items-center justify-between gap-2 px-4 sm:px-6 lg:px-8 mb-3 text-white'>
+      <div className='flex items-center gap-3 sm:gap-4'>
+        <div className='font-josefin-sans flex items-center gap-2'>
+          <Mail size={14} className='shrink-0' />
+          <p className='text-xs sm:text-[13px]'>Info@speed.com</p>
         </div>
-        <div className='font-josefin-sans flex items-center gap-2 text-white'>
-          <Phone size={15} />
-          <p className='text-[13px]'>(000) 000-000</p>
+        <div className='font-josefin-sans hidden sm:flex items-center gap-2'>
+          <Phone size={14} className='shrink-0' />
+          <p className='text-xs sm:text-[13px]'>(000) 000-000</p>
         </div>
       </div>
-      <div className='flex items-center gap-5 text-white'>
+      <div className='flex items-center gap-4 sm:gap-5'>
         {socialLinks.map(({ href, label, path }) => (
           <a key={label} href={href} aria-label={label}>
-            <svg
-              width='16'
-              height='16'
-              viewBox='0 0 24 24'
-              fill='currentColor'
-              aria-hidden='true'
-            >
+            <svg width='15' height='15' viewBox='0 0 24 24' fill='currentColor' aria-hidden='true'>
               <path d={path} />
             </svg>
           </a>

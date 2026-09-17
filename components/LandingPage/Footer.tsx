@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion, type Variants } from 'framer-motion'
 import speedLogo from '@/public/Speed.svg'
 
 const socialLinks = [
@@ -22,53 +23,76 @@ const socialLinks = [
     },
 ]
 
+const containerVariants: Variants = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.12 } },
+}
+
+const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+}
+
 const Footer = () => {
     return (
-        <footer className="bg-[#FDFDFD] px-10 py-16">
-            <div className="max-w-7xl mx-auto">
+        <footer className="bg-[#FDFDFD] px-6 sm:px-10 py-12 sm:py-16">
+            <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                className="max-w-7xl mx-auto"
+            >
 
                 {/* Top Section */}
                 <div className="flex flex-col gap-6">
 
                     {/* Logo */}
-                    <div>
-                        <Image src={speedLogo} alt="Speed Logo" className="w-24" />
-                    </div>
+                    <motion.div variants={itemVariants}>
+                        <Image src={speedLogo} alt="Speed Logo" className="w-20 sm:w-24" />
+                    </motion.div>
 
                     {/* Social Icons */}
-                    <div className="flex items-center gap-4">
+                    <motion.div variants={itemVariants} className="flex items-center gap-4">
                         {socialLinks.map(({ href, label, path }) => (
                             <a
                                 key={label}
                                 href={href}
                                 aria-label={label}
-                                className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-md text-[#1A202C]"
+                                className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-white shadow-md text-[#1A202C] hover:scale-110 hover:text-[#41BF5E] transition-transform"
                             >
                                 <svg
-                                    width="18"
-                                    height="18"
+                                    width="16"
+                                    height="16"
                                     viewBox="0 0 24 24"
                                     fill="currentColor"
                                     aria-hidden="true"
+                                    className="sm:w-4.5 sm:h-4.5"
                                 >
                                     <path d={path} />
                                 </svg>
                             </a>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* Divider */}
-                <div className="border-t border-gray-300 my-10" />
+                <motion.div
+                    variants={itemVariants}
+                    className="border-t border-gray-300 my-8 sm:my-10 origin-left"
+                />
 
                 {/* Bottom Section */}
-                <div className="flex flex-col md:flex-row items-center justify-between text-sm text-[#1A202C]">
+                <motion.div
+                    variants={itemVariants}
+                    className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-[#1A202C] text-center md:text-left"
+                >
 
                     {/* Left */}
                     <p>©2026 Speed. All rights reserved</p>
 
                     {/* Right */}
-                    <div className="flex gap-10 mt-4 md:mt-0">
+                    <div className="flex gap-6 sm:gap-10">
                         <Link href="#" className="hover:underline">
                             Privacy & Policy
                         </Link>
@@ -76,8 +100,8 @@ const Footer = () => {
                             Terms & Condition
                         </Link>
                     </div>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
         </footer>
     )
 }

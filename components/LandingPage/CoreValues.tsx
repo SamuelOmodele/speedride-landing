@@ -1,5 +1,19 @@
+'use client'
+
 import { Handshake, Lock, ShieldCheck, Wallet } from 'lucide-react'
-import React from 'react'
+import { motion, type Variants } from 'framer-motion'
+
+const containerVariants: Variants = {
+    hidden: {},
+    show: {
+        transition: { staggerChildren: 0.15 },
+    },
+}
+
+const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+}
 
 const CoreValues = () => {
 
@@ -32,45 +46,75 @@ const CoreValues = () => {
 
 
     return (
-        <div className="bg-[#A8FF9E] py-20 px-15 font-plus-jarkata-sans">
-            <h2 className="text-[44px] font-medium text-center">SPEED CORE VALUES</h2>
-            <p className="w-full text-[22px] max-w-225 mx-auto mt-3 text-center">
+        <div className="bg-[#A8FF9E] py-16 sm:py-20 px-6 sm:px-10 lg:px-15 font-plus-jarkata-sans">
+            <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                className="text-3xl sm:text-4xl lg:text-[44px] font-medium text-center"
+            >
+                SPEED CORE VALUES
+            </motion.h2>
+            <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+                className="w-full text-lg sm:text-xl lg:text-[22px] max-w-225 mx-auto mt-3 text-center"
+            >
                 We respect your time, while you move in peace
-            </p>
+            </motion.p>
 
-            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 mt-12">
+            <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 sm:mt-12"
+            >
 
                 {features.map((item, index) => {
                     const Icon = item.icon
 
                     return (
-                        <div
+                        <motion.div
                             key={index}
-                            className="bg-white rounded-2xl p-6 flex gap-4 items-start"
+                            variants={cardVariants}
+                            whileHover={{ y: -4, boxShadow: '0 10px 25px rgba(0,0,0,0.08)' }}
+                            className="bg-white rounded-2xl p-5 sm:p-6 flex gap-4 items-start"
                         >
                             {/* Icon */}
-                            <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-green-200 text-green-600">
+                            <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-green-200 text-green-600 shrink-0">
                                 <Icon size={24} />
                             </div>
 
                             {/* Text */}
                             <div className='flex-1 text-left'>
-                                <h3 className="text-[22px] font-medium text-black">
+                                <h3 className="text-lg sm:text-[22px] font-medium text-black">
                                     {item.title}
                                 </h3>
-                                <p className="text-base text-[#1A202C] mt-1 leading-relaxed">
+                                <p className="text-sm sm:text-base text-[#1A202C] mt-1 leading-relaxed">
                                     {item.description}
                                 </p>
                             </div>
-                        </div>
+                        </motion.div>
                     )
                 })}
 
-            </div>
+            </motion.div>
 
-            <button className="px-30 py-2.5 mt-8 mx-auto block font-plus-jarkata-sans font-medium text-[#1A202C] text-[24px] rounded-[10px] bg-[#FFC909]">
+            <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="px-10 sm:px-20 lg:px-30 py-2.5 mt-8 mx-auto block font-plus-jarkata-sans font-medium text-[#1A202C] text-lg sm:text-xl lg:text-[24px] rounded-[10px] bg-[#FFC909] cursor-pointer w-fit"
+            >
                 Order a Ride
-            </button>
+            </motion.button>
         </div>
     )
 }
